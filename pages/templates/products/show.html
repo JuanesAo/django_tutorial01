@@ -1,0 +1,39 @@
+{% extends 'pages/base.html' %}
+{% block title %}{{title}}{% endblock %}
+{% block header_title %}{{subtitle}}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h3 {% if product.price > 100 %}class="text-danger"{% endif %}>{{product.name}}</h3>
+                    <!-- Debug: Price value is {{product.price}} and type is {{product.price|floatformat:2}} -->
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h5 class="card-title">Product Information</h5>
+                            <p class="card-text"><strong>Description:</strong> {{product.description}}</p>
+                            <p class="card-text"><strong>Product ID:</strong> {{product.id}}</p>
+                            <p class="card-text"><strong>Price Value:</strong> {{product.price}} (Type: {{product.price|floatformat:2}})</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h4 class="text-primary">Price</h4>
+                                    <h2 class="text-success">${{product.price}}</h2>
+                                    <button class="btn btn-success btn-lg mt-2">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <a href="{% url 'product-index' %}" class="btn btn-secondary">Back to Products</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,50 @@
+{% extends 'pages/base.html' %}
+{% block title %}{{title}}{% endblock %}
+{% block header_title %}Product Created Successfully{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h3><i class="fas fa-check-circle"></i> Product Created</h3>
+                </div>
+                <div class="card-body text-center">
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Success!</h4>
+                        <p>Your product has been created successfully.</p>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Product Details:</h5>
+                            <ul class="list-unstyled">
+                                <li><strong>Name:</strong> {{product_name}}</li>
+                                <li><strong>Price:</strong> ${{product_price}}</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Next Steps:</h5>
+                            <p class="text-muted">Your product is now available in our catalog.</p>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="d-flex gap-2 justify-content-center">
+                        <a href="{% url 'product-index' %}" class="btn btn-primary">
+                            <i class="fas fa-list"></i> View All Products
+                        </a>
+                        <a href="{% url 'create' %}" class="btn btn-success">
+                            <i class="fas fa-plus"></i> Create Another Product
+                        </a>
+                        <a href="{% url 'home' %}" class="btn btn-secondary">
+                            <i class="fas fa-home"></i> Back to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

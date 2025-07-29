@@ -1,0 +1,74 @@
+{% extends 'pages/base.html' %}
+{% block title %}{{title}}{% endblock %}
+{% block header_title %}{{subtitle}}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Contact Information</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-envelope text-primary"></i> Email</h5>
+                            <p class="mb-3">
+                                <strong>General Inquiries:</strong><br>
+                                <a href="mailto:{{email}}" class="text-decoration-none">{{email}}</a>
+                            </p>
+                            <p class="mb-3">
+                                <strong>Customer Support:</strong><br>
+                                <a href="mailto:{{support_email}}" class="text-decoration-none">{{support_email}}</a>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-phone text-primary"></i> Phone</h5>
+                            <p class="mb-3">
+                                <strong>Main Office:</strong><br>
+                                <a href="tel:{{phone}}" class="text-decoration-none">{{phone}}</a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-map-marker-alt text-primary"></i> Address</h5>
+                            <p class="mb-3">
+                                <strong>Our Location:</strong><br>
+                                {{address}}
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-clock text-primary"></i> Business Hours</h5>
+                            <p class="mb-3">
+                                <strong>Customer Service:</strong><br>
+                                {{business_hours}}
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <h5><i class="fas fa-info-circle text-primary"></i> Additional Information</h5>
+                            <p class="mb-3">
+                                We're here to help! Feel free to reach out to us through any of the contact methods above. 
+                                Our customer service team is available during business hours to assist you with any questions 
+                                about our products or services.
+                            </p>
+                            <div class="d-flex gap-2">
+                                <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
+                                <a href="{% url 'product-index' %}" class="btn btn-secondary">View Products</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
