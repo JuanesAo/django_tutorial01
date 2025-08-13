@@ -24,6 +24,15 @@
                 </div>
                 {% endfor %}
             </div>
+            
+            <div class="mt-3">
+                <a href="{% url 'create' %}" class="btn btn-success">
+                    <i class="bi bi-plus-circle"></i> Crear Nuevo Producto
+                </a>
+                <a href="{% url 'product-table' %}" class="btn btn-info">
+                    <i class="bi bi-table"></i> Vista de Tabla
+                </a>
+            </div>
         </div>
     </div>
 </div>

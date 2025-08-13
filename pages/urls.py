@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import HomePageView, AboutPageView, ContactPageView, ProductIndexView, ProductShowView, ProductCreateView, ProductListView, ProductCreatedView
+from django.conf import settings
+from .views import HomePageView, AboutPageView, ContactPageView, ProductIndexView, ProductShowView, ProductCreateView, ProductListView, ProductCreatedView, ProductTableView, CartView, CartAddView, CartRemoveAllView, ImageViewFactory
 
 urlpatterns = [
     path('', HomePageView.as_view(), name='home'),
@@ -9,5 +10,12 @@ urlpatterns = [
     path('products/create/', ProductCreateView.as_view(), name='create'),
     path('products/<str:id>/', ProductShowView.as_view(), name='show'),
     path('product-list/', ProductListView.as_view(), name='product-list'),
+    path('product-table/', ProductTableView.as_view(), name='product-table'),
     path('product-created/', ProductCreatedView.as_view(), name='product-created'),
+    path('cart/', CartView.as_view(), name='cart_index'),
+    path('cart/add/<str:product_id>/', CartAddView.as_view(), name='cart_add'),
+    path('cart/removeAll/', CartRemoveAllView.as_view(), name='cart_removeAll'),
+    path('image/', ImageViewFactory(settings.IMAGE_STORAGE).as_view(), name='image_index'),
+    path('image/save/', ImageViewFactory(settings.IMAGE_STORAGE).as_view(), name='image_save'),
+    
 ]
